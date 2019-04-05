@@ -6,7 +6,6 @@ module V1
     def create
       @user = User.find_for_database_authentication(email: params[:email])
       return invalid_email unless @user
-
       if @user.valid_password?(params[:password])
         sign_in :user, @user
         render json: @user, serializer: SessionSerializer, root: nil
@@ -18,13 +17,13 @@ module V1
     private
 
     def invalid_email
-      warden.custom_failure!
-      render json: { error: t('invalid_email') }
+      #warden.custom_failure!
+      render json: { error: "メールアドレスが正しくありません" }, status: 403
     end
 
     def invalid_password
       warden.custom_failure!
-      render json: { error: t('invalid_password') }
+      render json: { error: "パスワードが正しくありません" }, status: 403
     end
   end
 end
