@@ -47,7 +47,6 @@ class Login extends Component {
                     />
                 </div>
                 <div >
-                    {loading}
                     <Button 
                         variant="outlined" 
                         color="primary" 
@@ -56,6 +55,12 @@ class Login extends Component {
                     >
                         ログイン
                     </Button>
+                </div>
+                <div>
+                    {loading}
+                </div>
+                <div>
+                    {this.props.token}
                 </div>
             </div>
         )

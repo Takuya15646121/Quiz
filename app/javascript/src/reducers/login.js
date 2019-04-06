@@ -6,7 +6,8 @@ const initialState = {
     isLoading: false,
     isSucceded: false,
     error: "",
-    hasToken: false
+    hasToken: false,
+    token: "",
 }
 
 export const loginReducer = (state, action) => {
@@ -28,21 +29,18 @@ export const loginReducer = (state, action) => {
             password: action.password
         }
     } else if(action.type === actions.REQUEST_LOGIN) {
-        console.log(action)
         return {
             ...state,
             isLoading: true,
         }
     } else if(action.type === actions.LOGIN_SUCCEEDED) {
-        console.log(action)
         return {
             ...state,
             isLoading: false,
-            isSucceded: true
+            isSucceded: true,
+            token: action.token
         }
     } else if(action.type === actions.LOGIN_FAILED) {
-        console.log(action)
-
         return {
             ...state,
             isLoading: false,

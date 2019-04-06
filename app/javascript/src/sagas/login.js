@@ -11,7 +11,7 @@ export function* login() {
             const {res, error} = yield call(apis.login, id, password)
             if(res && !error) {
                 //TODO: トークン永続化
-                yield put({type: actions.LOGIN_SUCCEEDED})
+                yield put({type: actions.LOGIN_SUCCEEDED, token: res.data.access_token})
             } else {
                 console.log(error)
                 yield put({ type: actions.LOGIN_FAILED, error: error })

@@ -14,6 +14,6 @@ export const loginActionCreator = {
     editId: (id) => { return { type: EDIT_ID, id }},
     editPassword: (password) => { return { type: EDIT_PASSWORD, password }},
     requestLogin: (id, password) => { return { type: REQUEST_LOGIN, id, password }},
-    loginSucceed: () => { return { type: LOGIN_SUCCEEDED }},
+    loginSucceed: (token) => { return { type: LOGIN_SUCCEEDED, token }},
     loginFailed: (error) => { return {type: LOGIN_FAILED, error}}
 }

@@ -5,16 +5,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
-import configureStore from '../src/store'
+import { PersistGate } from 'redux-persist/integration/react'
+import store, {persistor} from '../src/store'
 
-const store = configureStore()
-console.log(store)
 import App from '../src/app'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>,
     document.body.appendChild(document.createElement('div')),
   )
