@@ -45,7 +45,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'selenium-webdriver'  # CapybaraがSeleniumに依存しているため追加
+  gem 'selenium-webdriver', '~> 3.141.0'  # CapybaraがSeleniumに依存しているため追加
   gem 'capybara', '~> 2.13'          # 英語に文法でRSpecにテストを記述できる
   gem 'factory_girl_rails'  # FactoryGirl追加
   gem 'cucumber-rails', :require => false # Cucumber追加
