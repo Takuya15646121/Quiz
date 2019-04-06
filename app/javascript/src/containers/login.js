@@ -4,8 +4,10 @@ import { connect } from 'react-redux'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
+import { Switch, Redirect, Route } from 'react-router';
 
 import * as actionCreator from '../actions'
+import Home from './home'
 
 class Login extends Component {
 
@@ -21,9 +23,16 @@ class Login extends Component {
         
     }
 
+    handleToHome = () => {
+        this.props.history.push('/home/index')
+    }
+
     render() {
         const loading = this.props.isLoading ? <CircularProgress /> : ""
         const isEmpty = this.props.id === "" || this.props.password === ""
+        if(this.props.token != "") {
+            this.handleToHome()
+        }
         return (
             <div>
                 <div>
