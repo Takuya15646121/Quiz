@@ -22,7 +22,7 @@ gem 'devise', "~> 4.5.0"
 gem 'active_model_serializers'
 
 # Use haml
-gem 'haml-rails'
+gem 'haml-rails', "~> 1.0.0"
 
 gem "pg", "~> 0.18"
 
